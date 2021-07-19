@@ -3,12 +3,15 @@ const mongoose = require('mongoose')
 const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
 const methodOverride = require('method-override')
-const app = express()
 const port = process.env.PORT || 3000
+const app = express()
+
 
 mongoose.connect('mongodb://localhost/blog', { 
     useNewUrlParser: true, useUnifiedTopology: true 
 })
+
+mongoose.set('bufferCommands', false);
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
