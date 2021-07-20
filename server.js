@@ -3,10 +3,13 @@ const mongoose = require('mongoose')
 const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
 const methodOverride = require('method-override')
+const dotenv = require('dotenv')
 const port = process.env.PORT || 3000
 const app = express()
 
-const connectDB = async () => {try {await mongoose.connect('mongodb+srv://sops:test1234@my-blog.wwm1y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { 
+dotenv.config()
+
+const connectDB = async () => {try {await mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.Password}@my-blog.wwm1y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, { 
     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,
     useFindAndModify: false 
 })
