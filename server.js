@@ -16,8 +16,6 @@ mongoose.connect('mongodb://localhost/blog', {
   console.log(error.message)
   })
 
-mongoose.set('bufferCommands', false);
-
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
