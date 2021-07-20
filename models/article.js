@@ -30,7 +30,7 @@ const articleSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-}, { bufferCommands: false })
+})
 
 articleSchema.pre('validate', function(next) {
     if (this.title) {
