@@ -6,9 +6,9 @@ const methodOverride = require('method-override')
 const port = process.env.PORT || 3000
 const app = express()
 
-const connectDB = async () => {try {await mongoose.connect('mongodb://localhost/blog', { 
-    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, keepAlive : true,
-    bufferMaxEntries: 0, useFindAndModify: false 
+const connectDB = async () => {try {await mongoose.connect('mongodb+srv://sops:test1234@my-blog.wwm1y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { 
+    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,
+    useFindAndModify: false 
 })
     console.log('MongoDB connected!!');
 } catch (err) {
