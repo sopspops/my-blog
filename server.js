@@ -8,8 +8,13 @@ const app = express()
 
 
 mongoose.connect('mongodb://localhost/blog', { 
-    useNewUrlParser: true, useUnifiedTopology: true 
-})
+    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true
+}).then(connection => {
+    console.log('Connected to MongoDB DB')
+  })
+  .catch(error => {
+  console.log(error.message)
+  })
 
 mongoose.set('bufferCommands', false);
 
