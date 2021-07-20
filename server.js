@@ -15,8 +15,9 @@ const connectDB = async () => {try {await mongoose.connect('mongodb://localhost/
     console.log('Failed to connect to MongoDB', err);
 }}
 
-connectDB()
+mongoose.set('bufferCommands', false);
 
+connectDB()
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
